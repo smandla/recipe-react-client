@@ -7,11 +7,16 @@ const Recipe = (props) => {
     <>
       {props.isSelected ? (
         <div className={classes.recipe}>
+          <h1 className={classes.recipe__title}>
+            <span>{props.data.title}</span>
+          </h1>
           <figure className={classes.recipe__fig}>
-            <img src={props.data.img} alt="" className={classes.recipe__img} />
-            <h1 className={classes.recipe__title}>
-              <span>{props.data.title}</span>
-            </h1>
+            <img
+              src={props.data.img}
+              alt=""
+              className={classes.recipe__img}
+              align="right"
+            />
           </figure>
           <div className={classes.recipe__details}>
             <div className={classes.recipe__info}>
@@ -35,18 +40,18 @@ const Recipe = (props) => {
               </span>
               <span className={classes.recipe__info_text}> servings</span>
 
-              <div className={classes.recipe__info_button}>
-                <button className={classes.btn_tiny}>
+              {/* <div className={classes.recipe__info_button}>
+                {/* <button className={classes.btn_tiny}>
                   <svg className={classes.recipe__info_icon}>
                     <use xlinkHref={`${icons}#icon-minus-circle`}></use>
                   </svg>
-                </button>
-                <button className={classes.btn_tiny} upgrade>
+                </button> 
+                {/* <button className={classes.btn_tiny} upgrade>
                   <svg className={classes.recipe__info_icon}>
                     <use xlinkHref={`${icons}#icon-plus-circle`}></use>
                   </svg>
-                </button>
-              </div>
+                </button> 
+              </div> */}
             </div>
           </div>
           <div className={classes.recipe__ingredients}>

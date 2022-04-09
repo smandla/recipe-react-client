@@ -1,0 +1,17 @@
+.hamburger {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column nowrap;
+  z-index: 1000;
+  cursor: pointer;
+}
+.burger {
+  width: 3rem;
+  height: 0.5rem;
+  border-radius: 10px;
+  background-color: #380036;
+  transform-origin: 1px;
+  transition: all 0.3s linear;
+}

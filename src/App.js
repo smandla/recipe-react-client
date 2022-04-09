@@ -29,6 +29,7 @@ function App() {
   // useEffect(() => {
   //   setData(DUMMY_DATA);
   // }, []);
+  const [open, setOpen] = useState(false);
   const [userInput, setUserInput] = useState("");
   const [searched, setSearched] = useState("");
   const [selected, setSelected] = useState({});
@@ -86,17 +87,20 @@ function App() {
   };
   console.log(data);
   return (
-    <div className={classes.container}>
+    <>
       {/* <div class="grid-container"> */}
-      <Header
-        onInputHandler={inputHandler}
-        onSubmitHandler={submitHandler}
-        setAddingRecipe={setAddingRecipe}
-        addingRecipe={addingRecipe}
-        setLogin={setLogin}
-        categoryArr={categoryArr}
-      />
-
+      <div className={classes.header}>
+        <Header
+          onInputHandler={inputHandler}
+          onSubmitHandler={submitHandler}
+          setAddingRecipe={setAddingRecipe}
+          addingRecipe={addingRecipe}
+          setLogin={setLogin}
+          categoryArr={categoryArr}
+          open={open}
+          setOpen={setOpen}
+        />
+      </div>
       {/* <article>
         <Recipe data={selected} isSelected={isSelected} />
       </article> */}
@@ -154,7 +158,6 @@ function App() {
         />
         <Route path="/categories/:_id" element={<Category />} />
       </Routes>
-
       {/* </div> */}
       {/* 
       <div className={classes.preview}>
@@ -169,10 +172,9 @@ function App() {
           <Recipe data={selected} isSelected={isSelected} />
         </div>
       </div> */}
-
       {login ? <Login setLogin={setLogin} /> : ""}
       {/* </div> */}
-    </div>
+    </>
   );
 }
 

@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import classes from "./Header.module.scss";
 import logo from "../../img/kav.png";
 import icons from "../../img/icons.svg";
+import Hamburger from "../UI/Hamburger/Hamburger";
+import MobileNav from "../UI/MobileNav/MobileNav";
 const Header = (props) => {
   // const [userInput, setUserInput] = useState("");
   // const [searched, setSearched] = useState("");
@@ -11,8 +13,12 @@ const Header = (props) => {
   //   setUserInput(e.target.value);
   // };
   // useEffect(() => {});
+  console.log(props.open);
   return (
     <header>
+      <div className={classes.hamburger}>
+        <Hamburger setOpen={props.setOpen} open={props.open} />
+      </div>
       <Link to="/" className={classes.link}>
         <img src={logo} alt="Logo" className={classes.header__logo} />
       </Link>
@@ -22,7 +28,7 @@ const Header = (props) => {
             <input
               type="text"
               className={classes.search__field}
-              placeholder="Search over 1,000,000 recipes..."
+              placeholder="Search over recipes..."
               onChange={props.onInputHandler}
             />
             <button className={classes.btn}>
@@ -105,12 +111,12 @@ const Header = (props) => {
                   </div>
                 </div>
               </li>
-              <li className={classes.nav__item}>
+              {/* <li className={classes.nav__item}>
                 <div className={classes.bookmark}>
                   <button className={classes.nav__btn}>
                     {/* <svg className={classes.nav__icon}>
                 <use xlinkHref={`${icons}#icon-bookmark`}></use>
-              </svg> */}
+              </svg> 
                     <span>Bookmarks</span>
                   </button>
                 </div>
@@ -128,7 +134,7 @@ const Header = (props) => {
                     </div>
                   </ul>
                 </div>
-              </li>
+              </li> */}
               <li className={classes.nav__item}>
                 <button
                   className={classes.nav__btn}
@@ -144,6 +150,15 @@ const Header = (props) => {
           </nav>
         </div>
       </div>
+      {props.open ? (
+        <MobileNav
+          onSubmitHandler={props.onSubmitHandler}
+          onInputHandler={props.onInputHandler}
+          setAddingRecipe={props.setAddingRecipe}
+        />
+      ) : (
+        ""
+      )}
     </header>
   );
 };

@@ -158,9 +158,170 @@ const AddRecipe = (props) => {
     setEnteredImageURL("");
     onHideHandler();
   };
+  // console.log(userData);
   return (
     <div className={classes.overlay}>
       <div className={classes.container}>
+        <div>
+          <Link to="/">
+            <button className={classes.exit}>
+              <svg>
+                <use xlinkHref={`${icons}#icon-exit`}></use>
+              </svg>
+            </button>
+          </Link>
+        </div>
+        <div className={classes.card_form}>
+          <form className={classes.signup} onSubmit={addRecipeHandler}>
+            <div className={classes.form_title}>Add Recipe</div>
+            <div className={classes.form_body}>
+              <div className={classes.row}>
+                <input
+                  type="text"
+                  placeholder="Recipe Title*"
+                  onChange={onNameChangeHandler}
+                />
+                <input
+                  type="text"
+                  placeholder="Author*"
+                  onChange={onAuthorChangeHandler}
+                />
+              </div>
+              <div className={classes.row}>
+                <input
+                  type="text"
+                  placeholder="Image URL*"
+                  onChange={onImageURLChangeHandler}
+                />
+              </div>
+
+              <div className={classes.row}>
+                <input
+                  type="text"
+                  placeholder="Cuisine*"
+                  onChange={onCuisineChangeHandler}
+                />
+                <input
+                  type="text"
+                  placeholder="Servings*"
+                  onChange={onServingsChangeHandler}
+                />
+                <input
+                  type="text"
+                  placeholder="Cooking Time*"
+                  onChange={onCookingTimeChangeHandler}
+                />
+              </div>
+
+              <div className={classes.row}>
+                {/* <input type="text" onChange={onServingsChangeHandler} /> */}
+                <div className={classes.directions}>
+                  <label>Ingredients:</label>
+                  {ingredients.map((ingredient, i) => {
+                    return (
+                      <span className={classes.dirspan}>
+                        <label className={classes.dirlabel}>{i + 1}.</label>
+                        <input
+                          type="text"
+                          placeholder="Quantity*"
+                          value={ingredient.value || ""}
+                          onChange={(e) => onIngredientValChangeHandler(i, e)}
+                        />
+
+                        <input
+                          type="search"
+                          placeholder="Unit *"
+                          // value={ingredient.unit || ""}
+                          list="text_editors"
+                          onChange={(e) => onIngredientUnitChangeHandler(i, e)}
+                        />
+
+                        <datalist id="text_editors">
+                          <select multiple size="1">
+                            {units.map((a) => {
+                              return <option value={a}>{a}</option>;
+                            })}
+                          </select>
+                        </datalist>
+                        <input
+                          type="text"
+                          placeholder="Ingredient*"
+                          value={ingredient.item || ""}
+                          onChange={(e) => onIngredientItemChangeHandler(i, e)}
+                        />
+                      </span>
+                    );
+                  })}
+
+                  <input
+                    type="button"
+                    value="+"
+                    className={classes.add}
+                    onClick={addIngredientHandler}
+                  />
+                </div>
+              </div>
+              <div className={classes.rows}>
+                {/* <input type="text" onChange={onServingsChangeHandler} /> */}
+
+                <label>Directions:</label>
+                {directions.map((direction, i) => {
+                  return (
+                    <span className={classes.dirspan}>
+                      <label className={classes.dirlabel}>{i + 1}.</label>
+                      <input
+                        type="text"
+                        placeholder={`Recipe Step # ${i + 1} `}
+                        value={direction.value || ""}
+                        onChange={(e) => onDirectionChangeHandler(i, e)}
+                      />
+                    </span>
+                  );
+                })}
+
+                <input
+                  type="button"
+                  value="+"
+                  className={classes.add}
+                  onClick={addDirectionHandler}
+                />
+              </div>
+              <div className={classes.row}>
+                <div className={classes.category}>
+                  <label> Category: </label>
+                  {props.categoryArr.map((category) => {
+                    return (
+                      <button
+                        className={classes.categoryButton}
+                        type="button"
+                        onClick={onCategorySelectHandler}
+                      >
+                        {category}
+                      </button>
+                    );
+                  })}
+                  <input
+                    type="button"
+                    value="+"
+                    className={classes.categoryButton}
+                    // onClick={addIngredientHandler}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className={classes.rule}></div>
+            <div className={classes.form_footer}>
+              <button type="submit" className={classes.submitButton}>
+                Add Recipe
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      {/* // <div className={classes.overlay}> */}
+
+      {/* <div className={classes.container}>
         <div>
           <Link to="/">
             <button className={classes.exit}>
@@ -288,15 +449,15 @@ const AddRecipe = (props) => {
               />
             </div>
             <div className={classes.center}>
-              {/* <Link to="/"> */}
               <button type="search" className={classes.submitButton}>
                 Submit
               </button>
-              {/* </Link> */}
             </div>
           </form>
         </div>
-      </div>
+      </div> */}
+
+      {/* </div> */}
     </div>
   );
 };

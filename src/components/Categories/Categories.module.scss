@@ -3,7 +3,7 @@
   grid-row: 3 / span 3;
   grid-column: 1 / span 5;
   //   grid-row: 3 / span 3;
-  min-height: 200px;
+  height: 200px;
   width: fit-content;
   //   overflow: auto;
   // grid-area: head;
@@ -42,7 +42,7 @@
 .category {
   display: flex;
   //   flex-direction: column;
-  flex-flow: row-wrap;
+  // flex-flow: row-wrap;
   margin: 0 -2%;
 }
 .item {

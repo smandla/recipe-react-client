@@ -4,7 +4,7 @@
   border-radius: 16px;
 
   background-color: rgba(#0cbaba, 0.4);
-  // width: 100%;
+  width: 80%;
   // margin: 11.5rem 8re;
   // // max-height: 100%;
   // position: relative;
@@ -30,17 +30,21 @@ li + li {
 }
 
 .preview {
+  // background-color: red;
+  // margin-right: -50rem;
+  // right: 50%;
   // border-radius: 16rem;
   &__link {
     display: flex;
     align-items: center;
-    margin: 1rem 0;
-    padding: 1.5rem 1rem;
+    // margin: 1rem 0;
+    // padding: 1.5rem 1rem;
     transition: all 0.3s;
     // border-right: 1px solid #fff;
     list-style: none;
     list-style-type: none;
     text-decoration: none;
+    // background-color: green;
 
     &:hover {
       background-color: rgba(0, 0, 0, 0.3);
@@ -54,6 +58,7 @@ li + li {
   }
 
   &__fig {
+    // background-color: green;
     flex: 0 0 5.8rem;
     border-radius: 50%;
     overflow: hidden;
@@ -62,17 +67,17 @@ li + li {
     position: relative;
     backface-visibility: hidden;
 
-    &::before {
-      content: "";
-      display: block;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-image: linear-gradient(to right bottom, #0cbaba, #380036);
-      opacity: 0.4;
-    }
+    // &::before {
+    //   content: "";
+    //   display: block;
+    //   height: 100%;
+    //   width: 100%;
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   background-image: linear-gradient(to right bottom, #0cbaba, #380036);
+    //   opacity: 0.4;
+    // }
 
     img {
       display: block;

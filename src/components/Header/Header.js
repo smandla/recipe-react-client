@@ -13,7 +13,9 @@ const Header = (props) => {
   // useEffect(() => {});
   return (
     <header>
-      <img src={logo} alt="Logo" className={classes.header__logo} />
+      <Link to="/" className={classes.link}>
+        <img src={logo} alt="Logo" className={classes.header__logo} />
+      </Link>
       <div className={classes.column}>
         <div className={classes.row}>
           <form className={classes.search} onSubmit={props.onSubmitHandler}>
@@ -63,11 +65,16 @@ const Header = (props) => {
                       <div className={classes.recipe_category}>
                         <h2>Recipes By Category</h2>
                         <ul className={classes.diamond}>
-                          <li>Breakfast</li>
-                          <li>Lunch</li>
-                          <li>Dinner</li>
-                          <li>Appetizers</li>
-                          <li>Desserts</li>
+                          {props.categoryArr.map((category) => {
+                            return (
+                              <Link
+                                to={`/categories/${category}`}
+                                className={classes.link}
+                              >
+                                <li>{category}</li>
+                              </Link>
+                            );
+                          })}
                         </ul>
                       </div>
                       <div className={classes.recipe_category}>

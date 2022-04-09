@@ -48,6 +48,7 @@ function App() {
     "dinner",
     "desserts",
     "pescatarian",
+    "appetizers",
   ];
   useEffect(() => {
     setCategoryArr(arr);
@@ -93,6 +94,7 @@ function App() {
         setAddingRecipe={setAddingRecipe}
         addingRecipe={addingRecipe}
         setLogin={setLogin}
+        categoryArr={categoryArr}
       />
 
       {/* <article>
@@ -146,7 +148,10 @@ function App() {
             </>
           }
         ></Route>
-        <Route path="/categories" element={<Categories />} />
+        <Route
+          path="/categories"
+          element={<Categories categoryArr={categoryArr} />}
+        />
         <Route path="/categories/:_id" element={<Category />} />
       </Routes>
 
